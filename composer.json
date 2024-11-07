@@ -48,13 +48,12 @@
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
         }
     },
 	"extra": {
 		"laravel": {
 			"providers": [
-              "StoryblokPreviewsServiceProvider"
+              "Riclep\\StoryblokPreviews\\StoryblokPreviewsServiceProvider"
 			]
 		}
 	}
