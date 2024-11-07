@@ -8,10 +8,10 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| Array of components to generate screenshots for. The key should match the
-	| the component name in Storyblok. Each component should have a selector to
+	| component name in Storyblok. Each component should have a selector to
 	| target the component in the HTML. Optionally, you can specify a filename
-	| for the screenshot, a URL to navigate to before taking the screenshot and
-	| a delay in milliseconds to wait before taking the screenshot.
+	| for the screenshot, a URL to navigate to and a delay in milliseconds to
+	| wait before taking the screenshot.
 	|
 	| If you leave the filename empty, the component name will be used.
 	| If you don't specify a URL it will try and find a published page in

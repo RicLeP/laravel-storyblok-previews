@@ -1,8 +1,8 @@
 # Laravel Storyblok - Artisan CLI
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/riclep/laravel-storyblok-cli.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-cli)
-[![Total Downloads](https://img.shields.io/packagist/dt/riclep/laravel-storyblok-cli.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-cli)
-![GitHub Actions](https://github.com/riclep/laravel-storyblok-cli/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/riclep/laravel-storyblok-previews.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-previews)
+[![Total Downloads](https://img.shields.io/packagist/dt/riclep/laravel-storyblok-previews.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-previews)
+![GitHub Actions](https://github.com/riclep/laravel-storyblok-previews/actions/workflows/main.yml/badge.svg)
 
 Artisan commands for working with the Storyblok API in Laravel.
 
@@ -11,21 +11,47 @@ Artisan commands for working with the Storyblok API in Laravel.
 You can install the package via composer:
 
 ```bash
-composer require riclep/laravel-storyblok-cli
+composer require riclep/laravel-storyblok-previews
 ```
+
+Make sure you publish the config file with the following command:
+
+```bash
+php artisan vendor:publish --provider="Riclep\StoryblokPreviews\StoryblokPreviewsServiceProvider" --tag="config"
+```
+
+Please ensure you have configured the [Laravel Storyblok or Laravel Storyblok CLI](https://ls.sirric.co.uk) package before using this package.
+
+You will also need to set up [Sidecar Browsershot](https://github.com/stefanzweifel/sidecar-browsershot).
+
+If you would like to use a different screenshot driver, feel free to submit a PR.
+
 
 ## Usage
 
-### Setting variables environment
-In the `.env` file of your Laravel application, you have to define the environment parameter for setting the Storyblok user Personal access token. You can obtain your Storyblok Personal access token [here](https://app.storyblok.com/#/me/account?tab=token).
-Then you can define also the default space id for the space you want to manage via the Laravel CLI.
-In the `.env` file of your Laravel project add these two parameters:
+To specify the components you would like to generate screenshots for modify your `storyblok-previews.php` config file.
 
-```
-STORYBLOK_OAUTH_TOKEN=yourpersonalaccesstoken
-STORYBLOK_SPACE_ID=yourspaceid
-```
+Each component will need an entry in the `components` item. The item’s key should match the component name in Storyblok. 
+Each component should have a selector to target the component in the HTML. Optionally, you can specify a filename for 
+the screenshot, a URL to navigate to and a delay in milliseconds to wait before taking the screenshot. If you leave the 
+filename empty, the component name will be used. If you don't specify a URL it will try and find a published page in 
+Storyblok that contains the component.
 
+Example:
+
+```php
+    [
+        'hero' => [
+            'selector' => '.hero',
+        ],
+        'grid' => [
+            'delay' => 500,
+            'filename' => 'grid.jpg',
+            'selector' => ':has(> .grid),
+            'url' => '/about',
+        ],
+    ];
+```
 
 ### Changelog
 
