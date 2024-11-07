@@ -1,0 +1,61 @@
+{
+    "name": "riclep/laravel-storyblok-previews",
+    "description": "Artisan command for creating component preview images for Storyblok",
+    "keywords": [
+        "riclep",
+        "laravel-storyblok",
+        "cli",
+        "stryblok",
+        "storyblok cli",
+        "laravel cli",
+        "artisan storyblok"
+    ],
+    "homepage": "https://github.com/riclep/laravel-storyblok-previews",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Richard Le Poidevin",
+            "email": "ric@sirric.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "hammerstone/sidecar": "^0.6.1",
+        "riclep/laravel-storyblok-cli": "^2.0",
+	    "storyblok/php-client": "^2.2",
+        "wnx/sidecar-browsershot": "^2.3",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Riclep\\StoryblokPreviews\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Riclep\\StoryblokPreviews\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+	"extra": {
+		"laravel": {
+			"providers": [
+              "StoryblokPreviewsServiceProvider"
+			]
+		}
+	}
+}
