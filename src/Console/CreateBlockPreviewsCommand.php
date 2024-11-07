@@ -10,8 +10,6 @@ use Riclep\StoryblokCli\Endpoints\AssetFolders;
 use Riclep\StoryblokCli\Endpoints\Components;
 use Storyblok\ManagementClient;
 use Wnx\SidecarBrowsershot\BrowsershotLambda;
-use function App\Console\Commands\collect;
-use function App\Console\Commands\config;
 
 class CreateBlockPreviewsCommand extends Command
 {
