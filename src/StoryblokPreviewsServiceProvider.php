@@ -15,6 +15,12 @@ class StoryblokPreviewsServiceProvider extends ServiceProvider
 		$this->commands([
             CreateBlockPreviewsCommand::class,
 		]);
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/storyblok-previews.php' => config_path('storyblok-previews.php'),
+            ], 'storyblok-previews');
+        }
     }
 
 	/**

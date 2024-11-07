@@ -29,6 +29,9 @@ If you would like to use a different screenshot driver, feel free to submit a PR
 
 ## Usage
 
+This is a package you may wish you install outside of your main project and use it simply to generate screenshots of 
+your Storyblok components for various websites or projects but adjust the configuration to suit your needs.
+
 To specify the components you would like to generate screenshots for modify your `storyblok-previews.php` config file.
 
 Each component will need an entry in the `components` item. The item’s key should match the component name in Storyblok. 
