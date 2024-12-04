@@ -19,7 +19,7 @@ class StoryblokPreviewsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/storyblok-previews.php' => config_path('storyblok-previews.php'),
-            ], 'storyblok-previews');
+            ], ['storyblok-previews', 'config']);
         }
     }
 
