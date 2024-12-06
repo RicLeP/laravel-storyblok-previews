@@ -238,18 +238,19 @@ class CreateBlockPreviewsCommand extends Command
 
     protected function updateComponentImage($component, $assetPreviewUrl, $spaceId)
     {
-        $component['image'] = $assetPreviewUrl;
-        Components::make()->update($component['id'], $component);
-
         if ($component['image']) {
             $oldPreviewIdentifier = collect(explode('/', $component['image']))->slice(-2)->implode('/');
+
             $oldPreviewAsset = $this->client->get('spaces/' . $spaceId . '/assets/', [
                 'search' => $oldPreviewIdentifier,
             ])->getBody();
 
             if (count($oldPreviewAsset['assets'])) {
-                // $this->client->delete('/spaces/' . $spaceId . '/assets/' . $oldPreviewAsset['assets'][0]['id'])->getBody(); // TODO not working - 404 error
+                 $this->client->delete('spaces/' . $spaceId . '/assets/' . $oldPreviewAsset['assets'][0]['id'])->getBody(); // TODO not working - 404 error
             }
         }
+
+        $component['image'] = $assetPreviewUrl;
+        Components::make()->update($component['id'], $component);
     }
 }
