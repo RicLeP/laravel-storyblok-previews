@@ -22,9 +22,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "hammerstone/sidecar": "^0.6.1",
+        "hammerstone/sidecar": "^0.7.1",
         "riclep/laravel-storyblok-cli": "^2.0",
-	    "storyblok/php-client": "^2.2",
         "wnx/sidecar-browsershot": "^2.3",
         "ext-curl": "*"
     },
